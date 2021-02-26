@@ -18,6 +18,9 @@
      <link rel="preconnect" href="https://fonts.gstatic.com" />
      <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
+     <!-- fontAwesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+
      <!-- stylesheets -->
      <link rel="stylesheet" href="css/template.css" />
      <link rel="stylesheet" href="css/landing.css" />
@@ -37,38 +40,48 @@
                </div>
                <ul id="menu" class="flex">
                     <div id="submenu" class="flex" role="navigation">
-                         <li><a href="#shop">Our Bottles</a></li>
+                         <li><a href="#shop" class="tab-">Our Bottles</a></li>
                          <li><a href="#technology">Technology</a></li>
                          <li><a href="#Reviews">Reviews</a></li>
                     </div>
                     <li>
-                         <form action="index.html" id="account" class="flex">
-                              <button class="flex"> <a href="#">Sign Up</a> </button>
+                         <form action="index.html" class="account flex">
                               <button class="flex"> <a href="#">Sign In</a> </button>
-                              <a href="#">
-                                   <span class="corb flex">C</span>
+                              <a href="#" class="cart flex">
+                                   <i class="fas fa-shopping-cart"></i>
                               </a>
                          </form>
                     </li>
                </ul>
-
+               <div id="menu-tab-" class="menu-tab- flex_col" role="navigation">
+                    <div class="toggle flex">
+                         <span class="flex hbg"></span>
+                    </div>
+                    <ul id="submenu-tab-" class="flex_col" role="navigation">
+                         <li><a href="#shop">Our Bottles</a></li>
+                         <li><a href="#technology">Technology</a></li>
+                         <li><a href="#Reviews">Reviews</a></li>
+                         <li>
+                              <form action="index.html" class="account flex_col ">
+                                   <a href="#">Sign In</a>
+                                   <a href="#" class="flex cart-tab-">
+                                        <i class="fas fa-shopping-cart"></i>
+                                   </a>
+                              </form>
+                         </li>
+                    </ul>
+               </div>
           </nav>
 
-
-
-
-          <!-- <section id="hero" class="hero flex_col">
-               <div class="logo_container flex">
-                    <a href="index.html">
-                         <img src="img/logo-larq.svg" alt="LARQ logo">
-                    </a>
-               </div>
-               <div class="hero_img flex">
-                    <img src="img/hero.jpg" alt="All Bottles">
-               </div>
-          </section>-->
-
      </div>
+     <script>
+          const menuTab = document.querySelector('.menu-tab-');
+          document.querySelector('.toggle').onclick = function () {
+               this.classList.toggle('active');
+               menuTab.classList.toggle('active');
+          }
+
+     </script>
 </body>
 
 </html>

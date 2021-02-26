@@ -1,12 +1,20 @@
+:root{
+     --color-primary: #153a5b;
+     --color-secondary:#5a5e60;
+     --color-accent: #f3756d;
+
+     --bg-primary: #eee;
+     --bg-secondary:#b8cde3;
+}
 html{
      overflow: hidden;
 
 }
 #wrapper{
-     height: 100vh;
+     min-height: 100vh;
      width: 100%;
      max-width: 1700px;
-     overflow: hidden;   
+     overflow-x: hidden;   
 }
 
 /** overlay divs START**/
@@ -19,12 +27,12 @@ html{
 }
 .overlay_left{
      width: 80%;
-     background-color: #eee;
+     background-color: var(--bg-primary);
      left: 0;
 }
 .overlay_right{
      width: calc(20% + 15vw);
-     background-color: #b8cde3;
+     background-color: var(--bg-secondary);
      right: 0;
      z-index: -1;
 }
@@ -32,13 +40,14 @@ html{
      .overlay_right{
           height: 30vh;
           width: 100vw;
+          box-shadow: 0px -15px 100px 100px var(--bg-secondary);
      }
      .overlay_left{
           top: 30vh;
           bottom: 100vh;
 
           height: 70vh;
-          width: 100vw
+          width: 100vw;
      }
 }
 
@@ -49,12 +58,9 @@ html{
      height: 100px;
      width: 100%;
      padding: 2rem;
-     
-     /* background-color: red; */
 }
      /*logo div START*/
      #nav .logo_container{
-          /* background-color: seagreen; */
           height: 100%;
           flex-basis: 30%;
           justify-content: flex-start;
@@ -67,6 +73,8 @@ html{
           height: 100%;
 
           justify-content: flex-start;
+          position: relative;
+          left: -1rem;
      }
      .logo_container a svg{
           width: 70%;
@@ -99,17 +107,24 @@ html{
                }
                #submenu li a{
                     font-weight: 500;
+                    transition: all .3s ease-in;
+               }
+               #submenu li a:hover,
+               #submenu li a:active,
+               #submenu li a:focus{
+                    color: var(--color-secondary);
+                    border-bottom: .9px solid var(--color-accent);
                }
           /* submenu END*/
           /*form START*/
           #nav ul form{
                height: 100%;
                justify-content: flex-end;
-               color: #fff; 
+               color: var(--bg-primary); 
 
           }
           #nav form button{
-               background: #153a5b;
+               background: var(--color-primary);
                margin-left: .6rem;
                width: 130px;
                border-radius: 5px 20px 5px;
@@ -119,16 +134,168 @@ html{
                font-weight: 300;  
                padding: .4rem .8rem;         
           }
-          #nav form .corb{
+          #nav button:hover,
+          #nav button:focus,
+          #nav button:active{
+               background-color: var(--color-accent);
+               color: var(--color-secondary);
+          }
+          #nav form .cart{
                height: 40px;
                width: 40px;
                border-radius: 50%;
-               background-color: tomato;
+               background-color: var(--color-accent);
                font-size: 1.2rem;
                font-weight: 500;
+               margin-left: .6rem;
           }
           /*form END*/
+          /*menu for tab and narrower displays*/
+          #nav #menu-tab-{
+               display: none;
+          }
+
      /*menu ul END */
+
+@media screen and (max-width:768px){
+     #nav{
+          justify-content: space-between;
+     }
+     #nav #menu{
+          display: none;
+     }
+     #nav .logo_container{
+          padding: 0 1rem;
+     }
+     #nav #menu-tab-{
+          display: flex;
+          height: 36px;
+          width: 40%;
+          min-width: 100px;
+          max-width: 250px;
+          background-color: var(--color-primary);
+          justify-content: flex-end;
+
+          position: fixed;
+          right: 3rem;
+          top: 32px;
+          z-index: 1000;
+          overflow: hidden; /*!will make the submenu disappear */
+          transition: all .5s ease-in;
+     }
+     #nav #menu-tab-.active{
+          height: 336px;
+     }
+     #nav #menu-tab- a{
+          font-size: calc(1rem + .3vw);
+     }
+     #menu-tab- .toggle{
+          width: 100%;
+          height: 100%;
+          justify-content: space-between;
+          padding: 0 1rem;
+
+          font-weight: 500;
+          color: var(--bg-primary);
+
+          cursor: pointer; 
+     }
+     #menu-tab- .toggle::before{
+          content: 'MENU';
+     }
+     #menu-tab- .toggle.active::before{
+          content: 'CLOSE';
+          align-self: flex-start;
+          line-height: 36px;
+     }
+
+     #menu-tab- .toggle .hbg{
+          width: 1.375rem;
+          height: 100%;
+
+          margin-left: 1rem;
+
+          position: relative;
+          transition: all .5s ease-in;
+     } 
+     .toggle .hbg::before,
+     .toggle .hbg::after{
+          content: '';
+          height: 3px;
+          width: 100%;
+
+          background-color: var(--bg-primary);
+          position: absolute;
+          transition: all .5s ease-in;
+     }
+     .toggle .hbg::before{
+          top: 10.5px;
+          background-color: var(--bg-primary);
+     }
+     .toggle .hbg::after{
+          bottom:10.5px;
+          background-color: var(--color-accent);
+     }
+
+     #menu-tab- .toggle.active .hbg::before{
+          transform: rotate(225deg) ;
+          top: 18px;
+     }
+     #menu-tab- .toggle.active .hbg::after{
+          transform: rotate(135deg) ;
+          top: 18px;
+     }
+     /*?beauty */
+     .toggle:hover  .hbg::before,
+     .toggle:focus  .hbg::before{
+          transform: rotate(315deg) ;
+          top: 18px;
+     }
+     .toggle:hover .hbg::after,
+     .toggle:focus .hbg::after{
+          transform: rotate(225deg) ;
+          top: 18px;
+     }
+     /*?beauty */
+     /*submenu in menu-tab- START*/
+     #menu-tab- #submenu-tab-{
+          background-color: var(--bg-primary);
+          top: 36px;
+          width: 100%;
+          position: absolute;
+     }
+     #submenu-tab- li{
+          width: 100%;
+          text-align: center;
+     }
+
+     #submenu-tab- a{
+          display: inline-block;
+          background-color: var(--color-primary);
+          color: var(--bg-primary);
+          width: 100%;
+          padding: 1rem;
+     }
+     #submenu-tab-  a:hover,
+     #submenu-tab-  a:focus,
+     #submenu-tab-  a:active{
+          background-color: var(--color-accent);
+     }
+     #submenu-tab- form.account{
+          width: 100%;
+     }
+     #submenu-tab- a.cart-tab-:hover,
+     #submenu-tab- a.cart-tab-:focus,
+     #submenu-tab- a.cart-tab-:active{
+          background-color: var(--color-primary);
+     } 
+     #submenu-tab- form.account .cart-tab-:hover .fa-shopping-cart{
+          color: var(--color-accent);
+     }
+
+     /*submenu in menu-tab- END*/
+}
+
 
 /** WRAPPER Nav END **/
 
@@ -138,10 +305,10 @@ html{
      width: 100%;
      padding: 2rem;
 
-     background-color: #eee; ;
+     background-color: var(--bg-primary); ;
 
      
 }
 
 
-<!-- <li>#5A5E60 link rgb(21, 58, 91) On hover link rgb(117,117,117)</li> -->
+/*color: rgb(117,117,117) ;*/
