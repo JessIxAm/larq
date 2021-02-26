@@ -4,7 +4,7 @@
 <head>
      <meta charset="UTF-8" />
      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-     <meta name="viewport" content="width=device-width, initial-scale=1.0/">
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
      <meta name="description" content="A fake alternative to LARQ™ Product website" />
      <meta name="author" content="JessIxAm" />
      <title>LARQ™ | !!fake!!</title>
@@ -26,19 +26,49 @@
 </head>
 
 <body class="flex_col">
-     <h1>LARQ Bottles</h1>
-     <li>
-          <h2>My Technology</h2>
-     </li>
-     <li>
-          <h2>Reviews</h2>
-     </li>
+     <div id="wrapper">
+          <div class="overlay overlay_left"></div>
+          <div class="overlay overlay_right"></div>
+          <nav id="nav" class="flex">
+               <div class="logo_container flex">
+                    <a href="index.html" class="flex">
+                         <img src="img/logo-larq.svg" alt="LARQ logo">
+                    </a>
+               </div>
+               <ul id="menu" class="flex">
+                    <div id="submenu" class="flex" role="navigation">
+                         <li><a href="#shop">Our Bottles</a></li>
+                         <li><a href="#technology">Technology</a></li>
+                         <li><a href="#Reviews">Reviews</a></li>
+                    </div>
+                    <li>
+                         <form action="index.html" id="account" class="flex">
+                              <button class="flex"> <a href="#">Sign Up</a> </button>
+                              <button class="flex"> <a href="#">Sign In</a> </button>
+                              <a href="#">
+                                   <span class="corb flex">C</span>
+                              </a>
+                         </form>
+                    </li>
+               </ul>
 
-     <h1> Best-selling Gift sets</h1>
+          </nav>
 
-     <li>#5A5E60</li>
-     <li>link rgb(21, 58, 91) </li>
-     <li>On hover link rgb(117,117,117)</li>
+
+
+
+          <!-- <section id="hero" class="hero flex_col">
+               <div class="logo_container flex">
+                    <a href="index.html">
+                         <img src="img/logo-larq.svg" alt="LARQ logo">
+                    </a>
+               </div>
+               <div class="hero_img flex">
+                    <img src="img/hero.jpg" alt="All Bottles">
+               </div>
+          </section>-->
+
+     </div>
 </body>
 
 </html>

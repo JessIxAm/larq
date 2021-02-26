@@ -1,0 +1,147 @@
+html{
+     overflow: hidden;
+
+}
+#wrapper{
+     height: 100vh;
+     width: 100%;
+     max-width: 1700px;
+     overflow: hidden;   
+}
+
+/** overlay divs START**/
+.overlay{
+     position: absolute;
+     height: 100vh;
+     top: 0;
+     bottom: 0;
+     z-index: -2;
+}
+.overlay_left{
+     width: 80%;
+     background-color: #eee;
+     left: 0;
+}
+.overlay_right{
+     width: calc(20% + 15vw);
+     background-color: #b8cde3;
+     right: 0;
+     z-index: -1;
+}
+@media screen and (max-width: 1199px){
+     .overlay_right{
+          height: 30vh;
+          width: 100vw;
+     }
+     .overlay_left{
+          top: 30vh;
+          bottom: 100vh;
+
+          height: 70vh;
+          width: 100vw
+     }
+}
+
+/** overlay divs END **/
+
+/** wrapper Nav START**/
+#wrapper #nav{
+     height: 100px;
+     width: 100%;
+     padding: 2rem;
+     
+     /* background-color: red; */
+}
+     /*logo div START*/
+     #nav .logo_container{
+          /* background-color: seagreen; */
+          height: 100%;
+          flex-basis: 30%;
+          justify-content: flex-start;
+          
+     }
+     .logo_container a{
+          width: calc(50% + 1vw);
+          min-width: 120px;
+          max-width: 180px;
+          height: 100%;
+
+          justify-content: flex-start;
+     }
+     .logo_container a svg{
+          width: 70%;
+          height: 100%;
+     }
+     .logo_container a:hover{
+          -webkit-filter: grayscale(0.5) brightness(0.8);
+          filter: grayscale(0.5) brightness(0.8);
+     }
+     /*logo div END*/
+
+     /*menu ul START */
+     #nav ul#menu{
+          flex-basis: 70%;
+          height: 100%;
+          justify-content: space-between;
+     }
+     #nav a{
+          padding: 0 1rem;
+          font-size: calc(1.2rem + .3vw);
+     }
+          /*submenu START */
+               #nav ul#menu #submenu{
+                    flex-basis: calc(80% - 10vw);
+                    justify-content: flex-start;
+               }
+               #submenu li{
+                    flex-basis: 20%;
+                    margin-right: .5rem;
+               }
+               #submenu li a{
+                    font-weight: 500;
+               }
+          /* submenu END*/
+          /*form START*/
+          #nav ul form{
+               height: 100%;
+               justify-content: flex-end;
+               color: #fff; 
+
+          }
+          #nav form button{
+               background: #153a5b;
+               margin-left: .6rem;
+               width: 130px;
+               border-radius: 5px 20px 5px;
+          }
+          #nav ul form button a{
+               font-size: 1.2rem;
+               font-weight: 300;  
+               padding: .4rem .8rem;         
+          }
+          #nav form .corb{
+               height: 40px;
+               width: 40px;
+               border-radius: 50%;
+               background-color: tomato;
+               font-size: 1.2rem;
+               font-weight: 500;
+          }
+          /*form END*/
+     /*menu ul END */
+
+/** WRAPPER Nav END **/
+
+
+#wrapper #hero{
+     
+     width: 100%;
+     padding: 2rem;
+
+     background-color: #eee; ;
+
+     
+}
+
+
+<!-- <li>#5A5E60 link rgb(21, 58, 91) On hover link rgb(117,117,117)</li> -->
